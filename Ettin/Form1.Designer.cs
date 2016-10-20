@@ -34,6 +34,8 @@
 			this.buttonNewColumn = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.buttonSave = new System.Windows.Forms.Button();
+			this.comboBoxTableList = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -64,9 +66,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(13, 43);
+			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.dataGridView1.Size = new System.Drawing.Size(1028, 840);
 			this.dataGridView1.TabIndex = 2;
+			this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
 			// 
 			// buttonNewColumn
 			// 
@@ -87,23 +92,45 @@
 			// 
 			// comboBox1
 			// 
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Items.AddRange(new object[] {
-            "int",
-            "unsigned int",
-            "string",
+            "Int32",
+            "UInt32",
+            "String",
             "DateTime",
-            "something else"});
+            "Decimal"});
 			this.comboBox1.Location = new System.Drawing.Point(548, 13);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(121, 21);
 			this.comboBox1.TabIndex = 5;
+			// 
+			// buttonSave
+			// 
+			this.buttonSave.Location = new System.Drawing.Point(676, 13);
+			this.buttonSave.Name = "buttonSave";
+			this.buttonSave.Size = new System.Drawing.Size(107, 23);
+			this.buttonSave.TabIndex = 6;
+			this.buttonSave.Text = "Save DataSet";
+			this.buttonSave.UseVisualStyleBackColor = true;
+			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+			// 
+			// comboBoxTableList
+			// 
+			this.comboBoxTableList.FormattingEnabled = true;
+			this.comboBoxTableList.Location = new System.Drawing.Point(790, 13);
+			this.comboBoxTableList.Name = "comboBoxTableList";
+			this.comboBoxTableList.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxTableList.TabIndex = 7;
+			this.comboBoxTableList.SelectedIndexChanged += new System.EventHandler(this.comboBoxTableList_SelectedIndexChanged);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1054, 897);
+			this.Controls.Add(this.comboBoxTableList);
+			this.Controls.Add(this.buttonSave);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.buttonNewColumn);
@@ -126,6 +153,8 @@
 		private System.Windows.Forms.Button buttonNewColumn;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.Button buttonSave;
+		private System.Windows.Forms.ComboBox comboBoxTableList;
 	}
 }
 
